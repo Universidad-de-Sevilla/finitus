@@ -10,11 +10,6 @@
 //---------------------------------------------------------------------------------------------------
 global $smarty;
 global $plantilla;
-$smarty->assign('_javascript' , array('correo_validar','ordenatabla'));
-$smarty->assign('_nombre_pagina' , 'Ficha de datos personales');
-$smarty->assign('_usuario' , '');
-$smarty->assign('aviso' , '');
-$smarty->assign('error' , '');
 
 $alumno = $_SESSION['alumno'];
 $smarty->assign("alumno",$alumno);

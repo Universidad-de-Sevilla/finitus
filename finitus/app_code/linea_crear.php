@@ -1,20 +1,25 @@
 <?php
 //---------------------------------------------------------------------------------------------------
-// Proyecto: 
-// Archivo: lineas_listar.php
+// Proyecto: Finitus
+// Archivo: lineas_crear.php
 // Tipo: controlador
 // Desarrolladores: 
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
-// Descripcion: Muestra la ficha de datos del alumno
+// Descripcion: Muestra un formulario para que el profesor cree una nueva linea
 //---------------------------------------------------------------------------------------------------
 global $smarty;
 global $plantilla;
 
-$linea = new linea();
-$lineas = $linea->Find("true");
+$titulo = new titulo();
+$titulos = $titulo->Find("true");
+$smarty->assign("titulos",$titulos);
 
-$smarty->assign("lineas",$lineas);
-$smarty->assign("_nombre_pagina", "Datos personales");
-$plantilla = "lineas_listar.tpl";
+$area = new area();
+$areas = $area->Find("true");
+$smarty->assign("areas",$areas);
+
+
+$smarty->assign("_nombre_pagina", "Nueva línea de investigación");
+$plantilla = "linea_crear.tpl";
 ?>

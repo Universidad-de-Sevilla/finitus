@@ -3,13 +3,12 @@
 
 <form method="post" action="index.php?page=login" id="formlogin">
     <input type="hidden" name="acceso" value="1" />
-    <label for="correo">Correo</label> <br />
+    <li><label for="correo">Correo</label> <br />
     <input type="text" name="correo" id="correo" class="inp" />
-    <label for="nif">NIF</label> <br />
-    <input type="password" name="nif" id="nif" class="inp" /><br />
-    <input type="submit" class="submit-btn" value="Enviar" />
+	</li>
+	
+    <li><label for="nif">NIF</label> <br />
+    <input type="password" name="nif" id="nif" class="inp" /></li>
+    
+	<li><input type="submit" class="submit-btn" value="Enviar" /></li>
 </form>
-
-{if $alumno}
-<h1>{$alumno->nombre} {$alumno->apellidos}</h1>
-{/if}

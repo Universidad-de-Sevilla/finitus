@@ -38,6 +38,12 @@ $smarty->compile_dir = '../templates_c';
 $smarty->config_dir = '../configs'; 
 $smarty->cache_dir = '../cache'; 
 
+// Variables del controlador
+$smarty->assign('_javascript' , '');
+$smarty->assign('_usuario' , '');
+$smarty->assign('aviso' , '');
+$smarty->assign('error' , '');
+
 // Conexion a la base de datos utilizando ADODB y ActiveRecord
 // Las constantes vienen de ../app_code/app_config.php
 $adodb = NewADOConnection('mysql://'.DB_LOGIN.':'.DB_CLAVE.'@'.DB_HOST.'/'.DB_DATABASE);
