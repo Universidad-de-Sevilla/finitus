@@ -1,0 +1,57 @@
+/* Esta hoja define los estilos de los elementos html del diseño */
+/* Para ver los estilos que conforman el layout o plantilla ve a layout.css */
+
+/* Generales */
+a {
+    color:#369;
+}
+a:hover {
+  color:#fff;
+  background:#369;
+  text-decoration:none;
+}
+h1, h2, h3 {
+    margin:.8em 0 .2em 0;
+    padding:0;
+}
+p {
+    margin:.4em 0 .8em 0;
+    padding:0;
+}
+img {
+  margin:10px 0 5px;
+}
+
+/* Tables */
+table {
+	margin: 0.5em 0 1em 0;
+	border:1px;
+	}
+
+tr.par td{
+  background: #eef;
+  }
+
+tr.impar td{
+  background: #eee;
+  }
+
+tr.resaltado td{
+  background: #fcc;
+  }
+
+td, th {
+	text-align: left;
+	font-size: small;
+	border: 1px;
+	background: #eee;
+	padding: 0.5em 0.5em;
+	}
+
+th	{
+	border: solid 1px #800000;
+	background: #f90;
+	background: #fff;
+	font-weight: 900;
+	color:#000;
+	}

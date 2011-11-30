@@ -1,0 +1,155 @@
+/* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4 */
+/* -------------------------------------------------------------------------------------
+ Archivo: main.css
+----------------------------------------------------------------------------------------
+ Descripcion: Hoja de estilo del theme impreso, especifica para salida por impresora
+ de documentos
+----------------------------------------------------------------------------------------*/
+
+body {
+	background: #ddd ;
+	margin: 0;
+	padding: 0;
+	font: medium arial, sans-serif;
+	color: black;
+	}
+	
+#wrap {
+	text-align: left;
+	width: 17cm;
+	margin: 3px auto;
+	padding: 0;
+	background: #fff; 
+	}	
+
+#contenido {
+	padding: 0px 15px;
+	font-size: small;
+	}
+
+#logo {
+	padding: 10px;	
+	float: left;
+	background-color: white;
+	}
+
+.salto {
+    page-break-after:always
+    }
+	
+/* -- Propiedades generales para etiquetas básicas -- */
+
+img { border: none; }
+
+a	{
+	color: black;
+	text-decoration: none;
+	outline: none;
+	}
+	
+a:hover { color: black; }
+
+h1	{
+	color: #000;
+	font: large times, serif;
+  font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 0em;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding:0;
+	}
+
+h2	{
+	color: #000;
+	font: medium times, serif;
+  font-weight: bold;
+	margin-top:5px;
+	margin-bottom: 3px;
+	padding:0;
+	}
+
+h3	{
+	color: #000;
+	font: small times, serif;
+    font-weight: bold;
+	margin-top:3px;
+	margin-bottom: 2px;
+	padding:0;
+	}
+	 
+ul li a {
+	padding-left: 12px;
+	}
+
+table {
+	margin: 0px 0px 8px 0px;
+	border: 1px;
+    padding: 0px
+	}
+
+td, th {
+	text-align: left;
+	font-size: medium;
+	border: solid 1px #000;
+	background: #fff;
+	color:#000;
+	padding: 0.1em 0.4em;
+	}
+
+th	{
+	text-align: center;
+	background: #ccc;
+	font-weight: bold;
+	}
+td.noborde {
+    border: 0px;
+    }
+
+/* Footer styles */
+#footer {
+  margin-top:1em;
+  background-color: white;
+  border-top:1px solid black;
+  clear:both;
+  xfloat:left;
+  padding:0;
+  width:100%;
+}
+#footer p.big {
+	top: 0em;
+	text-align: center;
+	padding: 0;
+  margin: 0.5em;
+	font: small "trebuchet ms", verdana, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	}
+
+#footer p.big a{
+  text-decoration: none;
+  }
+
+#footer p.mini {
+	font: small "trebuchet ms", verdana, sans-serif;
+	text-align: center;
+	padding: 0;
+  margin: 0.5em;
+  }
+
+/* -- Propiedades específicas --*/
+p.aviso {
+    color: blue;
+	background: #eef url('../../../icons/ff16/information.png') no-repeat 5px 5px;
+    padding:5px;
+    padding-left: 30px;
+	border: 1px dashed blue;
+    }
+
+p.error {
+    color: red;
+	background: #fdd url('../../../icons/ff16/cross.png') no-repeat 5px 9px;
+    padding: 5px;
+	padding-left: 30px;
+	border: 1px dashed red;
+    }

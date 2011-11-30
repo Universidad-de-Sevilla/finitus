@@ -1,0 +1,315 @@
+body {
+  margin:0;
+  padding:0;
+  border:0;     /* This removes the border around the viewport in old versions of IE */
+  width:100%;
+  background:#fff;
+  min-width:600px;    /* Minimum width of layout - remove line if not required */
+         /* The min-width property does not work in old versions of Internet Explorer */
+  font-family:Lucida Grande,verdana,sans-serif;
+  font-size:90%;
+  color:#333;
+}
+a {
+  color:maroon;
+}
+a:hover {
+  color:#fff;
+  background:maroon;
+  text-decoration:none;
+}
+h1, h2, h3, h4 {
+  margin:.8em 0 .2em 0;
+  padding:0;
+  color: #333333;
+}
+
+p {
+  margin:.4em 0 .8em 0;
+  padding:0;
+}
+
+a img {
+  text-decoration: none;
+  border:0;
+}
+
+/* Tables */
+table {
+	margin: 0.5em 0 1em 0;
+	border:1px;
+	}
+
+td, th {
+	text-align: left;
+	font-size: small;
+	border: 1px;
+	padding: 0.5em 0.5em;
+	}
+
+th	{
+	border: solid 1px grey;
+  background: #ddd;
+	font-weight: 900;
+	color:#000;
+	}
+
+/* Header styles */
+#header {
+  clear:both;
+  float:left;
+  width:100%;
+  background: #ffffff;
+}
+#header {
+  border-bottom:1px solid maroon;
+}
+#header h1,
+#header h2 {
+  padding:0.1em 0.2em 0 0;
+  margin:0;
+  color:#333333;
+}
+#header h1 {
+  font-size:3.5em;
+  }
+#header h1 a{
+  text-decoration:none;
+}
+#header h1 img {
+  float: left;
+  padding: 0 30px;
+  }
+
+#header h4{
+  display: block;
+  font-weight: bold;
+  margin: 0.5em 0;
+	letter-spacing: 2px;
+}
+
+#logo {
+  float: left;
+  padding: 8px 20px 0px 20px;
+  }
+
+#header ul {
+  clear:left;
+  float:left;
+  width:100%;
+  list-style:none;
+  margin:10px 0 0 0;
+  padding:0;
+}
+#header ul li {
+  display:inline;
+  list-style:none;
+  margin:0;
+  padding:0;
+  height:30px;
+}
+
+#header ul li a {
+  display:block;
+  float:left;
+  font-size:1.2em;
+  text-align:center;
+  text-decoration:none;
+  background:#dea700;
+  color:#fff;
+  text-decoration:none;
+  position:relative;
+  left:15px;
+  line-height:1.2em;
+  margin:8px;
+  padding:12px;
+  border: 3px solid #333;
+}
+
+#header ul li a img{
+  float: left;
+  padding-right: 15px;
+  text-decoration:none;
+  border:0;
+  }
+
+#header ul li a:hover {
+  background:#fff;
+  color:#333;
+  text-decoration:none;
+}
+#header ul li a.active,
+#header ul li a.active:hover {
+  color:#fff;
+  background:#00330e;
+  font-weight:bold;
+}
+/* 'widths' sub menu */
+#layoutdims {
+  clear:both;
+  background:maroon;
+  color: white;
+  border-top: 2px solid maroon;
+  margin:0;
+  padding:6px 15px !important;
+  text-align:right;
+  }
+
+#layoutdims p{
+  font: normal "trebuchet ms", verdana, sans-serif;
+  color: white;
+}
+
+/* column container */
+.colmask {
+  position:relative;    /* This fixes the IE7 overflow hidden bug and stops the layout jumping out of place */
+  clear:both;
+  float:left;
+  width:100%;     /* width of whole page */
+  overflow:hidden;  /* This chops off any overhanging divs */
+}
+/* 1 column full page settings */
+.fullpage {
+  background:#fff;
+}
+.fullpage .col1 {
+  margin:0 15px;
+}
+
+/* Footer styles */
+#footer {
+  margin-top:1em;
+  background:none repeat scroll 0 0 #ffeec2;
+  border-top:2px solid maroon;
+  clear:both;
+  float:left;
+  padding:1em 0;
+  width:100%;
+}
+#footer p.big {
+	top: 0em;
+	text-align: center;
+	padding: 0.1em 0;
+	font: normal "trebuchet ms", verdana, sans-serif;
+  font-weight:bold;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	}
+
+#footer p.big a{
+  text-decoration: none;
+  }
+
+#footer p.mini {
+	font: small "trebuchet ms", verdana, sans-serif;
+	text-align: center;
+  }
+
+p.aviso {
+  font-size:1.2em;
+  color: blue;
+	background: #eef url('../../../../../icons/ff16/information.png') no-repeat 5px 9px;
+  padding:8px;
+  padding-left: 30px;
+	border: 1px dashed blue;
+  }
+
+p.error {
+  font-size:1.2em;
+  color: red;
+	background: #fdd url('../../../../../icons/ff16/error.png') no-repeat 5px 9px;
+  padding: 8px;
+	padding-left: 30px;
+	border: 1px dashed red;
+  }
+
+p.noticia {
+  color: #444;
+	background: #eee url('../../../../../icons/ff16/newspaper.png') no-repeat 3px 3px;
+  padding: 5px;
+	padding-left: 30px;
+  margin-right: 100px;
+	border: 1px solid #ccc;
+  }
+
+p.noticia span.fecha{
+	font-weight:bold;
+}
+
+p.boton-rojo{
+  padding:12px;
+  margin:8px;
+  border:3px solid #333;
+  background-color:maroon; 
+  font-size:1.2em;
+  width:200px;
+  height:30px;
+}
+p.boton-rojo img{
+  float: left;
+  padding-right: 15px;
+  }
+
+p.boton-rojo a{
+  text-decoration: none;
+  color:white;
+}
+
+p.boton-verde{
+  padding:12px;
+  margin:8px;
+  border:3px solid #333;
+  background-color:DarkGreen; 
+  font-size:1.2em;
+  width:200px;
+  height:30px;
+}
+p.boton-verde img{
+  float: left;
+  padding-right: 15px;
+  }
+
+p.boton-verde a{
+  text-decoration: none;
+  color:white;
+}
+
+div.validation-advice{
+  color: red;
+  }
+
+.boton-calendario{
+  background: url(../../../../../icons/ff16/date.png) no-repeat;
+  border: 0px;
+  cursor: pointer;
+  margin-left: 0.5em;
+  width: 30px;
+  }
+
+#basis{
+  display: inline;
+  position: relative;
+}
+
+#calender{
+  background-color: #eee;
+  border: 1px solid #933;
+  left: 20px;
+  padding: 10px;
+  position: absolute;
+  top: -210px;
+  width: 220px;
+  z-index: 10;
+}
+
+#calender .week .hoverEle{
+  background-color: black;
+  border: 0px solid #933;
+  color: white;
+}
+
+#calender .week .today{
+  background-color: red;
+  border: 0px solid #933;
+  color: black;
+}

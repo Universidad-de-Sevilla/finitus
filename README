@@ -1,0 +1,16 @@
+=== Cascara ===
+
+Nos gusta decir que cáscaras es lo menos que se despacha en frameworks. Y es que cascaras más que un framework es una forma de trabajar con PHP, ADODB y Smarty utilizando el modelo MVC (modelo,vista,controlador)
+
+==Los padres de la criatura==
+ 
+ - Juanan Ruiz - juanan@us.es - http://wikijuanan.com
+ - Jesús Martín - jjmc@us.es 
+
+==Créditos==
+
+ - PHP 5: no comments - http://php.net
+ - Smarty 3.0.8 (Junio 2011): mi lenguaje de plantillas favoritos - http://www.smarty.net
+ - ADOdb 5.1.4 (Septiembre 2011): una librería para "hablar" con cualquier gestor de bases de datos - http://adodb.sourceforge.net/
+ - pChart 2.1.3 (Septiembre 2011): librería gráfica para PHP - http://www.pchart.net
+ - Fam fam fam Icons - Los iconos son obra de Mark James, desarrollador web de Birmingham, UK. pueden descargarse desde http://www.famfamfam.com/lab/icons/silk/ o https://github.com/markjames/famfamfam-silk-icons bajo licencia Creative Commons Attribution 2.5 License 
