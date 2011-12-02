@@ -3,7 +3,6 @@
 // Proyecto: Finitus
 // Archivo: class/titulo.php
 // Tipo: definicion de clase
-// Desarrolladores: 
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
 // Descripcion: gestiona las titulaciones
@@ -13,7 +12,7 @@ class titulo extends ADOdb_Active_Record
 {
   //Propiedades de la clase
 	var $_table = 'titulos';
-    var $entidades = array();
+  var $entidades = array();
   
   //Plantilla de load_joined no usable aun  
   function load_joined($condicion)

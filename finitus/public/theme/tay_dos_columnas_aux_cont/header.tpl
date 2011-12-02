@@ -1,10 +1,11 @@
 <!DOCTYPE HTML> 
 <html>
 <head>
-  <title>{$_nombre_pagina} - Universidad de Sevilla</title>
-  <meta charset="UTF-8">
-  <meta name="description" content="" />
-  <meta name="keywords" content="" />
+  <title>{$_nombre_pagina} - Finitus</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta name="description" content="Aplicación para la selección y asignación de trabajos de fin de grado y master" />
+  <meta name="keywords" content="universidad, investigación, grado, master" />
   <meta name="robots" content="index, follow" />
   <link rel="stylesheet" type="text/css" href="theme/tay_dos_columnas_aux_cont/css/main.css">
   <link rel="stylesheet" type="text/css" href="theme/tay_dos_columnas_aux_cont/css/layout.css">

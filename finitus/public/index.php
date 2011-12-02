@@ -1,8 +1,7 @@
 <?php 
 //---------------------------------------------------------------------------------------------------
-// Proyecto :
+// Proyecto: Finitus
 // Archivo: index.php
-// Desarrolladores: 
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
 // Descripcion: Este es el controlador principal index.php que carga a todos los demas en su seno 
@@ -10,8 +9,8 @@
 //---------------------------------------------------------------------------------------------------
 
 // Quita los marcadores de comentario para que se vean los errores
-//ini_set('display_errors', '1');
-//error_reporting(E_ALL);
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
 
 // Librerías y funciones imprescindibles de cáscaras
 require_once('../app_code/app_config.php');
@@ -29,6 +28,7 @@ function __autoload($class_name)
 		require_once('../class/'.$class_name.'.php');
 	}
 }
+// Registra la funcion __autoload
 spl_autoload_register("__autoload"); 
 
 // Variables globales
@@ -40,7 +40,6 @@ $smarty->cache_dir = '../cache';
 
 // Variables del controlador
 $smarty->assign('_javascript' , '');
-$smarty->assign('_usuario' , '');
 $smarty->assign('aviso' , '');
 $smarty->assign('error' , '');
 
@@ -74,7 +73,8 @@ if (isset($_GET['page']) && isset($_SESSION['alumno']))
 	$page = sanitize($_GET['page'],SQL);
 	$alumno = new alumno();
 	$alumno = $_SESSION['alumno'];
-	$smarty->assign('alumno',$alumno);
+	//$smarty->assign('alumno',$alumno);
+  $smarty->assign('_usuario', $alumno);
 }
 else
 {
