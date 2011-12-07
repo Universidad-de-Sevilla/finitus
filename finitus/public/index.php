@@ -65,6 +65,39 @@ if(!@session_id())
 $page = '';
 $plantilla = '';
 
+// Si el usuario ha iniciado sesion creamos la variable _usuario para la cabecera
+// y lo llevamos a la página que ha solicitado o a la página por defecto
+if (is_object($_SESSION["usuario"])) 
+{
+	$usuario = $_SESSION["usuario"];
+	$smarty->assign("_usuario",$usuario);
+  if (isset($_GET['page'])) 
+  {
+    $page = sanitize($_GET['page'],SQL);
+  }
+  else
+  {
+    $page = 'inicio';
+  }
+  // Carga la página solicitada ($_GET['page']) o la pagina por defecto 
+  if(file_exists('../app_code/' . $page . '.php'))
+  {
+    require_once('../app_code/' . $page . '.php');
+  }
+  else
+  {
+    $smarty->assign('error' ,  "<b>No encontramos la página que ha solicitado."); 
+    $plantilla = "../app_code/error.tpl";
+  }
+}
+else
+{
+	// Si tenemos sso cargamos controlador de login
+  require_once("../app_code/".LOGIN.".php");
+}
+
+// Autenticación anterior
+/*
 // Hay que haber iniciado sesión y haber pedido pagina
 // Esto puede modificarse si la aplicación no requiere login 
 // o alguna zona es publica
@@ -81,6 +114,7 @@ else
 	// Si no se ha pedido ninguna página o no se ha iniciado sesión cargamos la de login  
 	$page = 'login';
 }
+*/
 
 // Carga la página solicitada ($_GET['page']) o la pagina por defecto ('login' en nuestro caso)
 if(file_exists('../app_code/' . $page . '.php'))
