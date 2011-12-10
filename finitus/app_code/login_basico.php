@@ -1,0 +1,79 @@
+<?php
+//---------------------------------------------------------------------------------------------------
+// Proyecto: Finitus
+// Archivo: login_basico.php
+// Tipo: controlador
+// Hecho con Cascara - http://cascara.aletia8.com
+//---------------------------------------------------------------------------------------------------
+// Descripcion: Gestiona el inicio de sesion de los usuarios en el sistema
+//---------------------------------------------------------------------------------------------------
+global $smarty;
+global $plantilla;
+
+// Si no viene el rol no hay nada que hacer
+// Si el login no es el del config nos la intentan colar
+if (isset($_REQUEST["rol"]) AND LOGIN == "login_basico")
+{
+  $rol = sanitize($_REQUEST["rol"], INT);
+  $smarty->assign('_nombre_pagina' , 'Inicio de sesión');
+  // Comprueba que viene del formulario
+  if (isset($_POST['acceso']))
+  {
+    // Comprueba que vengan los datos
+    if (isset($_POST["correo"]) AND isset($_POST["nif"]))
+    {
+      print_r($_POST);
+      $correo = sanitize($_POST["correo"],2);
+      $nif = sanitize($_POST["nif"],2);
+      $usuario = new persona();
+      $usuario->load("correo = '$correo' AND nif = '$nif'");
+      print_r($usuario);
+      if ($usuario->load("correo = '$correo' AND nif = '$nif'")) 
+      {
+        $_SESSION['usuario'] = $usuario;
+        switch($rol)
+        {
+          case 1:
+            header("location:index.php?page=alumno_lineas");
+            break;
+          case 2:
+            header("location:index.php?page=profesor_lineas");
+            break;
+          case 3:
+            header("location:index.php?page=gestor_inicio");
+            break;
+          default:
+            header("location:index.php?page=inicio");
+        }
+      }
+      else 
+      {
+        $error="Usuario o nif incorrectos.";
+        $smarty->assign('error',$error);
+        $smarty->assign('rol',$rol);
+        $plantilla = 'login_basico.tpl';
+      }
+    }
+    else 
+    {
+      // Si falta algun parametro volvemos al formulario y avisamos
+      $aviso = "Indique su nombre de usuario y nif.";
+      $smarty->assign('aviso',$aviso);
+      $smarty->assign('rol',$rol);
+      $plantilla = 'login_basico.tpl';
+    }
+  }
+  else
+  {	
+    // Si no venía del formulario lo mostramos sin más
+    session_unset();
+    $smarty->assign('rol',$rol);
+    $plantilla = 'login_basico.tpl';
+  }
+}
+else
+{
+  $smarty->assign("login", LOGIN);
+  $plantilla = 'inicio.tpl';
+}
+?>

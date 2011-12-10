@@ -1,8 +1,9 @@
 {if $aviso}<p class='aviso'>{$aviso}</p>{/if} 
 {if $error}<p class='error'>{$error}</p>{/if} 
 
-<form method="post" action="index.php?page=login" id="formlogin">
+<form method="post" action="index.php?page=login_basico" id="formlogin">
   <input type="hidden" name="acceso" value="1" />
+  <input type="hidden" name="rol" value="{$rol}" />
   <ul>
     <li><label for="correo">Correo</label> 
     <input type="text" name="correo" id="correo" class="inp" />

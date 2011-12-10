@@ -1,7 +1,7 @@
 <?php
 //---------------------------------------------------------------------------------------------------
 // Proyecto: Finitus
-// Archivo: class/alumno.php
+// Archivo: class/persona.php
 // Tipo: definicion de clase
 // Desarrolladores: 
 // Hecho con Cascara - http://cascara.aletia8.com
@@ -9,11 +9,10 @@
 // Descripcion: gestiona los usuarios (usa active record)
 //---------------------------------------------------------------------------------------------------
 
-class alumno extends ADOdb_Active_Record
+class persona extends ADOdb_Active_Record
 {
   //Propiedades de la clase
-	var $_table = 'alumnos';
-    var $entidades = array();
+	var $_table = 'personas';
 	
   function load_joined($condicion)
   {

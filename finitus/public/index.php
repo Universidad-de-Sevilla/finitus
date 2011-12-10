@@ -38,11 +38,6 @@ $smarty->compile_dir = '../templates_c';
 $smarty->config_dir = '../configs'; 
 $smarty->cache_dir = '../cache'; 
 
-// Variables del controlador
-$smarty->assign('_javascript' , '');
-$smarty->assign('aviso' , '');
-$smarty->assign('error' , '');
-
 // Conexion a la base de datos utilizando ADODB y ActiveRecord
 // Las constantes vienen de ../app_code/app_config.php
 $adodb = NewADOConnection('mysql://'.DB_LOGIN.':'.DB_CLAVE.'@'.DB_HOST.'/'.DB_DATABASE);
@@ -62,68 +57,40 @@ if(!@session_id())
 }
 
 //Definimos variables
-$page = '';
+//$page = '';
 $plantilla = '';
+$smarty->assign("_usuario",false);
+$smarty->assign('_javascript' , false);
+$smarty->assign('aviso' , false);
+$smarty->assign('error' , false);
 
 // Si el usuario ha iniciado sesion creamos la variable _usuario para la cabecera
 // y lo llevamos a la página que ha solicitado o a la página por defecto
-if (is_object($_SESSION["usuario"])) 
+if (isset($_SESSION["usuario"]) AND isset($_REQUEST["page"])) 
 {
-	$usuario = $_SESSION["usuario"];
-	$smarty->assign("_usuario",$usuario);
-  if (isset($_GET['page'])) 
-  {
-    $page = sanitize($_GET['page'],SQL);
-  }
-  else
-  {
-    $page = 'inicio';
-  }
-  // Carga la página solicitada ($_GET['page']) o la pagina por defecto 
-  if(file_exists('../app_code/' . $page . '.php'))
-  {
-    require_once('../app_code/' . $page . '.php');
-  }
-  else
-  {
-    $smarty->assign('error' ,  "<b>No encontramos la página que ha solicitado."); 
-    $plantilla = "../app_code/error.tpl";
-  }
+	$usuario = $_SESSION["usuario"]; // Asignamos esta variable por si la necesita el controlador
+	$smarty->assign("_usuario",$usuario); //Esto es para el header.tpl por eso lleva un guión bajo delante
+  $page = sanitize($_GET['page'],SQL);
+}
+else if (isset($_REQUEST["rol"]))
+{
+  // Si se ha pasado rol en la url es porque querían hacer login
+  $page = LOGIN;
 }
 else
 {
-	// Si tenemos sso cargamos controlador de login
-  require_once("../app_code/".LOGIN.".php");
+  // página por defecto
+  $page = 'inicio';
 }
 
-// Autenticación anterior
-/*
-// Hay que haber iniciado sesión y haber pedido pagina
-// Esto puede modificarse si la aplicación no requiere login 
-// o alguna zona es publica
-if (isset($_GET['page']) && isset($_SESSION['alumno'])) 
-{
-	$page = sanitize($_GET['page'],SQL);
-	$alumno = new alumno();
-	$alumno = $_SESSION['alumno'];
-	//$smarty->assign('alumno',$alumno);
-  $smarty->assign('_usuario', $alumno);
-}
-else
-{
-	// Si no se ha pedido ninguna página o no se ha iniciado sesión cargamos la de login  
-	$page = 'login';
-}
-*/
-
-// Carga la página solicitada ($_GET['page']) o la pagina por defecto ('login' en nuestro caso)
+// Carga la página 
 if(file_exists('../app_code/' . $page . '.php'))
 {
-	require_once('../app_code/' . $page . '.php');
+  require_once('../app_code/' . $page . '.php');
 }
 else
 {
-	require_once('../app_code/error.php');
+  require_once('../app_code/error404.php');
 }
 
 // Llama a las tres plantillas que conforman la página html
