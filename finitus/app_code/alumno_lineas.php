@@ -12,6 +12,8 @@ global $smarty;
 global $plantilla;
 global $usuario;
 
+$smarty->assign("_nombre_pagina", "Líneas seleccionadas");
+
 $solicitud = new Solicitud();
 $solicitudes = $solicitud->Find("rol_alumno_id = $usuario->id");
 $smarty->assign("solicitudes", $solicitudes);
@@ -20,4 +22,5 @@ $linea = new Linea();
 $lineas = $linea->Find(true);
 $smarty->assign("lineas", $lineas);
 
+$plantilla = "alumno_lineas.tpl";
 ?>

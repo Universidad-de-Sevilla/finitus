@@ -1,18 +1,17 @@
 <?php
 //---------------------------------------------------------------------------------------------------
 // Proyecto: Finitus
-// Archivo: class/persona.php
+// Archivo: class/solicitud.php
 // Tipo: definicion de clase
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
-// Descripcion: gestiona los usuarios (usa active record)
+// Descripcion: gestiona las solicitudes de los alumnos 
 //---------------------------------------------------------------------------------------------------
 
-class persona extends ADOdb_Active_Record
+class solicitud extends ADOdb_Active_Record
 {
   //Propiedades de la clase
-	var $_table = 'personas';
-  var $rol_actual;
+	var $_table = 'solicitudes';
 	
   function load_joined($condicion)
   {

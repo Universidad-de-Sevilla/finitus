@@ -22,14 +22,13 @@ if (isset($_REQUEST["rol"]) AND LOGIN == "login_basico")
     // Comprueba que vengan los datos
     if (isset($_POST["correo"]) AND isset($_POST["nif"]))
     {
-      print_r($_POST);
       $correo = sanitize($_POST["correo"],2);
       $nif = sanitize($_POST["nif"],2);
       $usuario = new persona();
       $usuario->load("correo = '$correo' AND nif = '$nif'");
-      print_r($usuario);
       if ($usuario->load("correo = '$correo' AND nif = '$nif'")) 
       {
+        $usuario->rol_actual = $rol;
         $_SESSION['usuario'] = $usuario;
         switch($rol)
         {

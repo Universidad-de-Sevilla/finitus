@@ -3,7 +3,6 @@
 // Proyecto: Finitus
 // Archivo: class/linea.php
 // Tipo: definicion de clase
-// Desarrolladores: 
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
 // Descripcion: gestiona las líneas de investigación

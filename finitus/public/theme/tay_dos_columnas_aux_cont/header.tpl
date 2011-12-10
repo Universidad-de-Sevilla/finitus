@@ -20,21 +20,18 @@
 <div id="header">
   <!-- empieza menu superior -->
   {include file='menu_superior.tpl'}
-  <!-- termina menu superior -->
-
-  <h1>finitus</h1>
-
-  <p id="layoutdims"> 
+  
     {if $_usuario}
       <div id='usuario'>
-        <a href='javascript:window.history.back();'> Volver</a>  
-        &nbsp;
         <a href='index.php?page=usuario_datos&id_usuario={$_usuario->nif}'>{$_usuario->nombre} {$_usuario->apellidos}</a> 
         &nbsp;
         <a href='index.php?page=login'> Salir</a>
       </div>
     {/if}
-  </p>
+  <!-- termina menu superior -->
+
+  <h1>finitus</h1>
+
 </div>
 
 <div class="colmask leftmenu">
