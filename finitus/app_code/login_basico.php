@@ -29,16 +29,30 @@ if (isset($_REQUEST["rol"]) AND LOGIN == "login_basico")
       if ($usuario->load("correo = '$correo' AND nif = '$nif'")) 
       {
         $usuario->rol_actual = $rol;
-        $_SESSION['usuario'] = $usuario;
+
         switch($rol)
         {
           case 1:
-            header("location:index.php?page=alumno_lineas");
+            // Comprobamos que el usuario tiene un perfil activo como alumno
+            $alumno = new alumno();
+            if ($alumno_perfiles = $alumno->Find("persona_id = $usuario->id AND fecha_inicio < $hoy AND fecha_fin > $hoy'"))
+            {
+              $usuario->alumno_perfiles = $alumno->perfiles;
+              $_SESSION['usuario'] = $usuario;
+              header("location:index.php?page=alumno_lineas");
+            }
+            else
+            {
+              $error = "No tiene ningún perfil activo como alumno a fecha de hoy";
+              header("location:index.php?page=inicio&error=$error");
+            }
             break;
           case 2:
+              $_SESSION['usuario'] = $usuario;
             header("location:index.php?page=profesor_lineas");
             break;
           case 3:
+              $_SESSION['usuario'] = $usuario;
             header("location:index.php?page=gestor_inicio");
             break;
           default:
