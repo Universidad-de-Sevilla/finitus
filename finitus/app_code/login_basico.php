@@ -29,15 +29,17 @@ if (isset($_REQUEST["rol"]) AND LOGIN == "login_basico")
       if ($usuario->load("correo = '$correo' AND nif = '$nif'")) 
       {
         $usuario->rol_actual = $rol;
+        $hoy = date("Y-m-d H:i:s");
 
         switch($rol)
         {
           case 1:
             // Comprobamos que el usuario tiene un perfil activo como alumno
             $alumno = new alumno();
-            if ($alumno_perfiles = $alumno->Find("persona_id = $usuario->id AND fecha_inicio < $hoy AND fecha_fin > $hoy'"))
+            //echo "persona_id = $usuario->id AND fecha_inicio < '$hoy' AND fecha_fin > '$hoy'";
+            if ($alumno_perfiles = $alumno->Find("persona_id = $usuario->id AND fecha_inicio < '$hoy' AND fecha_fin > '$hoy'"))
             {
-              $usuario->alumno_perfiles = $alumno->perfiles;
+              $usuario->perfiles = $alumno_perfiles;
               $_SESSION['usuario'] = $usuario;
               header("location:index.php?page=alumno_lineas");
             }

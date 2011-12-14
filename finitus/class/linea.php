@@ -12,20 +12,18 @@ class linea extends ADOdb_Active_Record
 {
   //Propiedades de la clase
 	var $_table = 'lineas';
-    var $entidades = array();
+    var $profesor;
 	
   function load_joined($condicion)
   {
     if ($this->load($condicion))
     {
-      $linea_entidad = new linea_titulacion();
-      $this->entidades = $linea_entidad->Find_entidades("id_linea = $this->id_linea");
-      return true;
+		$profesor = new profesor();
+		$profesor->load_joined("id = $this->profesor_id");
+		$this->profesor = $profesor;
+		return true;
     }
-    else
-    {
-      return false;
-    }
+    else return false;
   }
 }
 ?>

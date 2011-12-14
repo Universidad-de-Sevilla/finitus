@@ -1,17 +1,19 @@
 {if $solicitudes}
+<ul>
   {foreach from=$solicitudes item=solicitud}
-    <li>{$solicitud->nombre}</li>
+    <li>Prof. {$solicitud->linea->profesor->persona->nombre} {$solicitud->linea->profesor->persona->apellidos} - {$solicitud->linea->nombre} </li>
   {/foreach}
-{else}
+</ul>
+  {else}
   <p class="aviso">Todavía no ha seleccionado ninguna línea</p>
 {/if}
 
 {if $lineas}
   <form name="nuevalinea" action="index.php?page=solicitud_grabar" method="post">
     <li>
-      <select name="lineas">
+      <select name="linea_id">
         {foreach from=$lineas item=linea}
-          <option value="{$linea->id}">{$linea->nombre}</option>
+          <option value="{$linea->id}">Prof. {$solicitud->linea->profesor->persona->nombre} {$solicitud->linea->profesor->persona->apellidos} - {$linea->nombre}</option>
         {/foreach}
       </select>
       &nbsp;

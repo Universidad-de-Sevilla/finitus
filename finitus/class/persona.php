@@ -12,20 +12,7 @@ class persona extends ADOdb_Active_Record
 {
   //Propiedades de la clase
 	var $_table = 'personas';
-  var $rol_actual;
-	
-  function load_joined($condicion)
-  {
-    if ($this->load($condicion))
-    {
-      $alumno_entidad = new alumno_titulacion();
-      $this->entidades = $alumno_entidad->Find_entidades("id_alumno = $this->id_alumno");
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
+	var $rol_actual;
+  var $perfiles;
 }
 ?>
