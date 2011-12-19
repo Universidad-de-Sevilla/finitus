@@ -14,6 +14,9 @@ class persona extends ADOdb_Active_Record
   var $_table = 'personas';
   var $rol_actual;
   var $perfiles;
+  var $perfiles_alumno;
+  var $perfiles_profesor;
+  var $perfiles_gestor;
     
 }
 ?>

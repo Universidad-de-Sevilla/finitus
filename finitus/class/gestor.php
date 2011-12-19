@@ -1,28 +1,47 @@
 <?php
 //---------------------------------------------------------------------------------------------------
 // Proyecto: Finitus
-// Archivo: class/persona.php
+// Archivo: class/gestor.php
 // Tipo: definicion de clase
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
-// Descripcion: gestiona los usuarios (usa active record)
+// Descripcion: gestiona los perfiles de gestores
 //---------------------------------------------------------------------------------------------------
 
-class persona extends ADOdb_Active_Record
+class gestor extends ADOdb_Active_Record
 {
   //Propiedades de la clase
-	var $_table = 'personas';
-  var $rol_actual;
+	var $_table = 'gestores';
 	
   function load_joined($condicion)
   {
     if ($this->load($condicion))
     {
-      $alumno_entidad = new alumno_titulacion();
-      $this->entidades = $alumno_entidad->Find_entidades("id_alumno = $this->id_alumno");
+      $persona = new persona();
+      $persona->load("id = $this->persona_id");
+      $this->persona = $persona;
       return true;
     }
-    else
+    else 
+    {
+      return false;
+    }
+  }
+  
+
+  function Find_joined($condicion)
+  {
+    if ($gestores = $this->Find($condicion))
+    {
+      foreach ($gestores as& $gestor)
+      {
+        $persona = new persona();
+        $persona->load("id = $gestor->persona_id");
+        $gestor->persona = $persona;
+      }
+      return $gestor;
+    }
+    else 
     {
       return false;
     }

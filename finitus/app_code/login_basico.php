@@ -37,11 +37,11 @@ if (isset($_REQUEST["rol"]) AND LOGIN == "login_basico")
             // Comprobamos que el usuario tiene un perfil activo como alumno
             $alumno = new alumno();
             //echo "persona_id = $usuario->id AND fecha_inicio < '$hoy' AND fecha_fin > '$hoy'";
-            if ($alumno_perfiles = $alumno->Find("persona_id = $usuario->id AND fecha_inicio < '$hoy' AND fecha_fin > '$hoy'"))
+            if ($perfiles = $alumno->Find("persona_id = $usuario->id AND fecha_inicio < '$hoy' AND fecha_fin > '$hoy'"))
             {
-              $usuario->perfiles = $alumno_perfiles;
-			  $_SESSION['usuario'] = $usuario;
-			  header("location:index.php?page=alumno_lineas");
+              $usuario->perfiles = $perfiles;
+              $_SESSION['usuario'] = $usuario;
+              header("location:index.php?page=alumno_lineas");
             }
             else
             {
