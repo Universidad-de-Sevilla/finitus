@@ -40,8 +40,8 @@ if (isset($_REQUEST["rol"]) AND LOGIN == "login_basico")
             if ($alumno_perfiles = $alumno->Find("persona_id = $usuario->id AND fecha_inicio < '$hoy' AND fecha_fin > '$hoy'"))
             {
               $usuario->perfiles = $alumno_perfiles;
-              $_SESSION['usuario'] = $usuario;
-              header("location:index.php?page=alumno_lineas");
+			  $_SESSION['usuario'] = $usuario;
+			  header("location:index.php?page=alumno_lineas");
             }
             else
             {

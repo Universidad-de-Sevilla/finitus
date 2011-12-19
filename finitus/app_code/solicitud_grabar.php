@@ -15,7 +15,7 @@ $ahora = date("Y-m-d H:i:s");
 $solicitud = new Solicitud();
 $solicitud->prioridad = 1;
 $solicitud->linea_id = $linea_id;
-$solicitud->alumno_id = $usuario->id;
+$solicitud->alumno_id = $usuario->perfiles[0]->id;
 $solicitud->fecha_alta = $ahora;
 $solicitud->save();
 header("location:index.php?page=alumno_lineas");

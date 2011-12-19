@@ -19,7 +19,7 @@ $solicitudes = $solicitud->Find_joined("alumno_id = $usuario->id");
 $smarty->assign("solicitudes", $solicitudes);
 
 $linea = new Linea();
-$lineas = $linea->Find(true);
+$lineas = $linea->Find_joined(true);
 $smarty->assign("lineas", $lineas);
 
 $plantilla = "alumno_lineas.tpl";

@@ -25,5 +25,21 @@ class linea extends ADOdb_Active_Record
     }
     else return false;
   }
+  
+    function Find_joined($condicion)
+  {
+    if ($lineas = $this->Find($condicion))
+    {
+		foreach($lineas as &$linea)
+		{
+			$profesor= new profesor();
+			$profesor->load_joined("id = $linea->profesor_id");
+			$linea->profesor = $profesor;
+		}
+		return $lineas;
+    }
+    else return false;
+  }
+      
 }
 ?>

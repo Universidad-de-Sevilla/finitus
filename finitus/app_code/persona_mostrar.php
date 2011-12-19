@@ -1,17 +1,17 @@
 <?php
 //---------------------------------------------------------------------------------------------------
 // Proyecto: 
-// Archivo: alumno_ficha.php
+// Archivo: persona_mostrar.php
 // Tipo: controlador
-// Desarrolladores: 
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
-// Descripcion: Muestra la ficha de datos del alumno
+// Descripcion: Muestra los datos de una persona
 //---------------------------------------------------------------------------------------------------
 global $smarty;
 global $plantilla;
+global $usuario;
 
-$alumno = $_SESSION['alumno'];
-$smarty->assign("alumno",$alumno);
-$plantilla = "alumno_ficha.tpl";
+$smarty->assign("persona",$usuario);
+$smarty->assign("_nombre_pagina", "Datos personales");
+$plantilla = "persona_mostrar.tpl";
 ?>

@@ -39,5 +39,9 @@
     <div class="col1wrap">
       <div class="col1">
         <h2>{$_nombre_pagina}</h2>
+            {if isset($error)}<p class="error">{$error}</p>{/if}
+            {if isset($smarty.get.error)}<p class="error">{$smarty.get.error}</p>{/if}
+            {if isset($aviso)}<p class="aviso">{$aviso}</p>{/if}
+            {if isset($smarty.get.aviso)}<p class="aviso">{$smarty.get.aviso}</p>{/if}
 		        <!-- Content Column start -->
 	
