@@ -12,7 +12,8 @@ class alumno extends ADOdb_Active_Record
 {
   //Propiedades de la clase
 	var $_table = 'alumnos';
-  var $persona;
+  var $persona; 
+  var $titulo;
 	
   function load_joined($condicion)
   {
@@ -21,6 +22,9 @@ class alumno extends ADOdb_Active_Record
       $persona = new persona();
       $persona->load("id = $this->persona_id");
       $this->persona = $persona;
+      $titulo = new titulo();
+      $titulo->load("id = $this->titulo_id");
+      $this->titulo = $titulo;
       return true;
     }
     else 
@@ -39,6 +43,9 @@ class alumno extends ADOdb_Active_Record
         $persona = new persona();
         $persona->load("id = $alumno->persona_id");
         $alumno->persona = $persona;
+        $titulo = new titulo();
+        $titulo->load("id = $this->titulo_id");
+        $alumno->titulo = $titulo;
       }
       return $alumnos;
     }

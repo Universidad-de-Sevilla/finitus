@@ -2,8 +2,7 @@
 //---------------------------------------------------------------------------------------------------
 // Proyecto: Finitus
 // Archivo: class/profesor.php
-// Tipo: definicion de clase
-// Hecho con Cascara - http://cascara.aletia8.com
+// Hecho con Cascara - http://trib.us.es/cascaras
 //---------------------------------------------------------------------------------------------------
 // Descripcion: gestiona los perfiles de profesor asociados a las personas
 //---------------------------------------------------------------------------------------------------
@@ -13,6 +12,7 @@ class profesor extends ADOdb_Active_Record
   //Propiedades de la clase
 	var $_table = 'profesores';
   var $persona;
+  var $titulo;
 	
   function load_joined($condicion)
   {
@@ -21,6 +21,9 @@ class profesor extends ADOdb_Active_Record
       $persona = new persona();
       $persona->load("id = $this->persona_id");
       $this->persona = $persona;
+      $titulo = new titulo();
+      $titulo->load("id = $this->titulo_id");
+      $this->titulo = $titulo;
       return true;
     }
     else 
@@ -39,6 +42,9 @@ class profesor extends ADOdb_Active_Record
         $persona = new persona();
         $persona->load("id = $profesor->persona_id");
         $profesor->persona = $persona;
+        $titulo = new titulo();
+        $titulo->load("id = $this->titulo_id");
+        $profesor->titulo = $titulo;
       }
       return $profesores;
     }
