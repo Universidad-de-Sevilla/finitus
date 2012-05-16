@@ -13,10 +13,10 @@ class departamento extends ADOdb_Active_Record
 {
   //Propiedades de la clase
 	var $_table = 'departamentos';
-    var $entidades = array();
+    //var $entidades = array();
   
   //Plantilla de load_joined no usable aun  
-  function load_joined($condicion)
+  /*function load_joined($condicion)
   {
     if ($this->load($condicion))
     {
@@ -28,6 +28,6 @@ class departamento extends ADOdb_Active_Record
     {
       return false;
     }
-  }
+  }*/
 }
 ?>

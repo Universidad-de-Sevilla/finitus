@@ -30,6 +30,8 @@ if (isset($_REQUEST["rol"]) AND LOGIN == "login_basico")
       {
         $usuario->rol_actual = $rol;
         $hoy = date("Y-m-d H:i:s");
+        $usuario->perfiles_cargar();
+
 
         switch($rol)
         {

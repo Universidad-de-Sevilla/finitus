@@ -1,18 +1,16 @@
 <?php
 //---------------------------------------------------------------------------------------------------
 // Proyecto: Finitus
-// Archivo: perfil_seleccionar.php
+// Archivo: class/centro.php
+// Tipo: definicion de clase
 // Hecho con Cascara - http://cascara.aletia8.com
 //---------------------------------------------------------------------------------------------------
-// Descripcion: Carga todos los perfiles activos del usuario y los muestra en un desplegable 
+// Descripcion: centros
 //---------------------------------------------------------------------------------------------------
-global $smarty;
-global $usuario;
-global $plantilla;
 
-$smarty->assign("_nombre_pagina", "Selección de perfil o titulación");
-$plantilla = "perfil_seleccionar.tpl";
-
-print_r($usuario);
-
+class centro extends ADOdb_Active_Record
+{
+  //Propiedades de la clase
+	var $_table = "centros";	
+}
 ?>
