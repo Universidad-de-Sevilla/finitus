@@ -1,3 +1,7 @@
+<div class="acciones">
+  <a href="index.php?page=linea_crear">Proponer línea</a>
+</div>
+
 <table>
 <tr>
   <th>Nombre línea de investigación</th>

@@ -25,6 +25,6 @@ $consulta = "SELECT * FROM personas INNER JOIN alumnos ON personas.id = alumnos.
 $resultado = $adodb->getAssoc($consulta);
 $smarty->assign("personas", $resultado);
 
-$smarty->assign("_nombre_pagina", "Datos personales");
-$plantilla = "personas_listar.tpl";
+$smarty->assign("_nombre_pagina", "Lista de Personas");
+$plantilla = "persona_listar.tpl";
 ?>

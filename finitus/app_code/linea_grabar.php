@@ -19,7 +19,7 @@ if (isset($_REQUEST["nombre"]) AND isset($_REQUEST["area_id"]) AND isset($_REQUE
   $linea->profesor_id = sanitize($_REQUEST["profesor_id"], INT);
   $linea->save();
   //header("Location:index.php?page=linea_mostrar&linea_id=1");
-  header("Location:index.php?page=lineas_listar");
+  header("Location:index.php?page=profesor_lineas");
 }
 else
 {

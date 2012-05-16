@@ -13,6 +13,6 @@ $linea = new linea();
 $lineas = $linea->Find("true");
 
 $smarty->assign("lineas",$lineas);
-$smarty->assign("_nombre_pagina", "Datos personales");
-$plantilla = "lineas_listar.tpl";
+$smarty->assign("_nombre_pagina", "Líneas propuestas");
+$plantilla = "profesor_lineas.tpl";
 ?>
